@@ -4,13 +4,14 @@ import Card from '../UI/Card';
 import blogPost from '../../containers/data/blog.json'
 
 const BlogPost = (props) => {
-
+    console.log(props.match.params)
     const [post, setPost] = useState({
         blogImage : "post1Image.jpg"
     });
 
     useEffect(()=>{
         const postId = props.match.params.postId;
+        if(postId==":1") postId = 1
         console.log(blogPost)
         const Post = blogPost.data.find(post=>post.id==postId);
         setPost(Post);
